@@ -1,0 +1,68 @@
+{% extends 'bootstrap4/bootstrap4.html' %}
+
+{% load bootstrap4 %}
+{% block bootstrap4_content %}
+{% load static %}
+{{ form.media }}
+<style>
+    /* Show it is fixed to the top */
+    body {
+        min-height: 75rem;
+        padding-top: 65px;
+    }
+    h1.navbar-text {
+        font-size: 24px;
+    }
+
+</style>
+
+<nav class="navbar navbar-expand-md fixed-top">
+    <a class="navbar-brand" href="{% url 'dashboard' %}">TIREPARK IMAGE ANALYSIS SYSTEM</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-around">
+        <h1 class="navbar-text" id="page-title">
+            {% block bootstrap4_title %}{% block title %}{% endblock %}{% endblock %}
+        </h1>
+    </div>
+    <div class="collapse navbar-collapse justify-content-end">
+        <ul class="navbar-nav mr-auto">
+            {% if auth_user %}
+            {% if is_admin %}
+            <li class="nav-item active">
+                <a class="nav-link" href="/admin/">システム</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'options' 1 %}">オプション</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'customer_list' %}">顧客一覧</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'measurement_day_list' %}">測定日一覧</a>
+            </li>
+            {% endif %}
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'logout' %}">ログアウト</a>
+            </li>
+            {% else %}
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'login' %}">ログイン</a>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+
+<div class="main container">
+    <p>
+    </p>
+
+    {% autoescape off %}{% bootstrap_messages %}{% endautoescape %}
+
+    {% block content %}(no content){% endblock %}
+</div>
+
+{% endblock %}

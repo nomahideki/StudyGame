@@ -1,0 +1,42 @@
+django
+djangorestframework
+uwsgi
+gunicorn
+
+# 出力関係
+# Cross Origin Accessを扱うため
+#django-cors-headers
+
+django-bootstrap4
+django-bootstrap-themes
+django-widget-tweaks
+django-bootstrap-datepicker-plus
+
+# Django用のCMS
+#wagtail
+
+# DB関係
+# MySQL / MariaDB
+pymysql
+# PostgreSQL
+#psycopg2-binary
+
+# S3関係
+#boto3
+#django-storages
+#django-s3-cache
+#dj_database_url
+
+# 設定関係(.envでの環境設定)
+python-decouple
+
+#画像処理関係
+#opencv-python
+#Pillow
+#numpy
+#matplotlib
+
+# ツール
+#pycryptodome
+#django-qr-code
+
